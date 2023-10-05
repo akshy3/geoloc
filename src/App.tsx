@@ -13,14 +13,15 @@ function App() {
 
   //fetch
   const fetchData = (ip: any) => {
-    fetch(`http://ip-api.com/json/${ip}`).then((res) => res.json()).then(
-      (data) => {
-        console.log(data);
-        if (data) {
-          setPosition([data.lat, data.lon]);
-        }
-      },
-    );
+    fetch(`https://get.geojs.io/v1/ip/geo/${ip}.json`).then((res) => res.json())
+      .then(
+        (data) => {
+          console.log(data);
+          if (data) {
+            setPosition([data.latitude, data.longitude]);
+          }
+        },
+      );
   };
   return (
     <>
