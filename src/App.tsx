@@ -13,7 +13,7 @@ function App() {
 
   //fetch
   const fetchData = (ip: any) => {
-    fetch(`http://ip-api.com/json/${ip}`).then((res) => res.json()).then(
+    fetch(`https://ip-api.com/json/${ip}`).then((res) => res.json()).then(
       (data) => {
         console.log(data);
         if (data) {
