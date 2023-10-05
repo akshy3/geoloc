@@ -1,19 +1,18 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./App.css";
-import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
-import "leaflet/dist/leaflet.css";
-function ChangeView({ coords }) {
+import { MapContainer, TileLayer, useMap } from "react-leaflet";
+function ChangeView({ coords }: { coords: any }) {
   const map = useMap();
   map.setView(coords, 13);
   return null;
 }
 
 function App() {
-  const [inputIp, setInputIp] = useState();
-  const [position, setPosition] = useState([45.4998, -73.6087]);
+  const [inputIp, setInputIp] = useState<any>();
+  const [position, setPosition] = useState<any>([45.4998, -73.6087]);
 
   //fetch
-  const fetchData = (ip) => {
+  const fetchData = (ip: any) => {
     fetch(`http://ip-api.com/json/${ip}`).then((res) => res.json()).then(
       (data) => {
         console.log(data);
@@ -53,11 +52,6 @@ function App() {
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
-          <Marker position={position}>
-            <Popup>
-              A pretty CSS3 popup. <br /> Easily customizable.
-            </Popup>
-          </Marker>
         </MapContainer>
       )}
     </>
