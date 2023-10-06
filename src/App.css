@@ -1,3 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+* {
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  height: 100vh;
+  width: 100vw;
+}
+.logo-container {
+  padding: 2px;
+}
+.logo {
+  font-weight: bolder;
+}
+.map-container {
+  height: 100%;
+  width: 100%;
+}
 .map {
-  height: 180px;
+  height: 100%;
+  width: 100%;
+}
+
+.container {
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+.ip-details {
+  padding: 5px;
+  border: 1px solid black;
+  font-size: 1rem;
+  line-height: 1em;
+  border-radius: 9px;
+  margin: 2px;
+}
+.ip-details p {
+  margin: 5px;
+}
+.label {
+  font-weight: bold;
+}
+input[type="text"] {
+  padding: 5px;
+  border-radius: 40px;
+  width: 100%;
+}
+button[type="submit"] {
+  padding: 5px;
+  /* background: black; */
+  /* color: white; */
+  /* border-radius: 10px; */
+  all: unset;
+  cursor: pointer;
+  margin: 4px;
+}
+.input-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 2px;
 }
