@@ -9,7 +9,7 @@ function ChangeView({ coords }: { coords: any }) {
 }
 
 function App() {
-  const [inputIp, setInputIp] = useState<any>();
+  const [inputIp, setInputIp] = useState<string>("");
   const [data, setData] = useState<any>(null);
 
   //fetch
@@ -42,6 +42,7 @@ function App() {
             <input
               type="text"
               value={inputIp}
+              placeholder="Enter IP address"
               onChange={(e) => {
                 setInputIp(e.target.value);
               }}
@@ -85,18 +86,28 @@ function App() {
             </p>
           </div>
           <div className="map-container">
-            <MapContainer
-              className="map"
-              center={[data.latitude, data.longitude]}
-              zoom={10}
-              scrollWheelZoom={false}
-            >
-              <ChangeView coords={[data.latitude, data.longitude]} />
-              <TileLayer
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-              />
-            </MapContainer>
+            {data.latitude !== "nil" && (
+              <MapContainer
+                className="map"
+                center={[
+                  data.latitude !== "nil" ? data.latitude : 0,
+                  data.longitude !== "nil" ? data.longitude : 0,
+                ]}
+                zoom={10}
+                scrollWheelZoom={false}
+              >
+                <ChangeView
+                  coords={[
+                    data.latitude !== "nil" ? data.latitude : 0,
+                    data.longitude !== "nil" ? data.longitude : 0,
+                  ]}
+                />
+                <TileLayer
+                  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                />
+              </MapContainer>
+            )}
           </div>
         </div>
       )}
